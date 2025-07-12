@@ -1,0 +1,16 @@
+@layer base {
+    :root.dark {
+        color-scheme: dark;
+    }
+
+    /* When scrolling to validation error, do not hide element behind the top bar */
+    [data-field-wrapper] {
+        scroll-margin-top: 8rem;
+    }
+
+    .custom-input input:hover {
+        border-color: #3b82f6 !important;
+        /* biru Tailwind blue-500 */
+        box-shadow: 0 0 0 1px rgba(59, 130, 246, 1) !important;
+    }
+}

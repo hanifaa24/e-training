@@ -1,0 +1,31 @@
+/* resources/css/custom.css */
+@import "tailwindcss/preflight";
+@import "tailwindcss/utilities";
+
+/* Mengubah warna border saat input fokus */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+    border-color: #3b82f6 !important; /* Contoh: Biru Tailwind CSS 500 */
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5) !important; /* Contoh: Ring biru dengan opasitas */
+    /* Anda bisa mengganti #3b82f6 dengan kode warna heksadesimal pilihan Anda */
+}
+
+/* Jika Anda ingin menargetkan lebih spesifik elemen input Filament,
+   Anda bisa memeriksa kelas CSS yang mereka gunakan di browser
+   (misalnya, menggunakan alat inspeksi pengembang).
+   Filament sering menggunakan kelas seperti 'fi-input'.
+*/
+.fi-input:focus {
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5) !important;
+}
+
+/* Untuk menghilangkan outline default browser dan menggantinya dengan box-shadow */
+.fi-input:focus-visible {
+    outline: none !important;
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5) !important;
+}
