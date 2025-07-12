@@ -7,22 +7,25 @@
 <x-filament::page>
     @php
         $user = auth()->user();
-        $employee = $user?->employee;
 
         $topCourse = null;
-
-        $upcomingTraining = null;
 
         $now = now();
         $start = $now;
         $end = now()->addWeek();
 
-        $upcomingTraining = \App\Models\Training::whereJsonContains('employee_id', (string) $employee->id)
-            ->whereRaw("STR_TO_DATE(CONCAT(`date`, ' ', `time`), '%Y-%m-%d %H:%i:%s') >= ?", [$start])
-            ->whereRaw("STR_TO_DATE(CONCAT(`date`, ' ', `time`), '%Y-%m-%d %H:%i:%s') <= ?", [$end])
-            ->orderBy('date')
-            ->orderBy('time')
-            ->first();
+        $employee = $user?->employee;
+
+$upcomingTraining = null;
+
+if ($employee) {
+    $upcomingTraining = \App\Models\Training::whereJsonContains('employee_id', (string) $employee->id)
+        ->whereRaw("STR_TO_DATE(CONCAT(`date`, ' ', `time`), '%Y-%m-%d %H:%i:%s') >= ?", [$start])
+        ->whereRaw("STR_TO_DATE(CONCAT(`date`, ' ', `time`), '%Y-%m-%d %H:%i:%s') <= ?", [$end])
+        ->orderBy('date')
+        ->orderBy('time')
+        ->first();
+}
 
         $topCourse = null;
 
