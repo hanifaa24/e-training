@@ -7,11 +7,9 @@
 <x-filament::page>
     @php
         $user = auth()->user();
-        $employee = \App\Models\Employee::find($user->employee_id);
+        $employee = $user?->employee;
 
         $topCourse = null;
-
-        $employee = Auth::user()?->employee;
 
         $upcomingTraining = null;
 
